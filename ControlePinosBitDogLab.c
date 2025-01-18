@@ -26,9 +26,10 @@ int main() {
         ReceberComando();
     }
 }
-void ReceberComando(){
+
+void ReceberComando() {
     // Receber o comando 
-    if (scanf("%s", comando) > 0) {
+    if (scanf("%9s", comando) > 0) {  // Limitar a leitura para evitar overflow
         if (strcmp(comando, "verde") == 0) {
             AtivarLedVerde();
         } else if (strcmp(comando, "azul") == 0) {
@@ -41,46 +42,62 @@ void ReceberComando(){
             DesligarLeds();
         } else if (strcmp(comando, "buzzer") == 0) {
             AtivarBuzzer();
+        } else {
+            printf("Comando desconhecido: %s\n", comando);  // Mensagem para comando desconhecido
         }
     }
 }
-void InicializarPinos(){
+
+void InicializarPinos() {
     gpio_init(LED_VERDE);
     gpio_set_dir(LED_VERDE, GPIO_OUT);
+    gpio_put(LED_VERDE, 0);  // Desliga o LED verde inicialmente
+
     gpio_init(LED_AZUL);
     gpio_set_dir(LED_AZUL, GPIO_OUT);
+    gpio_put(LED_AZUL, 0);  // Desliga o LED azul inicialmente
+
     gpio_init(LED_VERMELHO);
     gpio_set_dir(LED_VERMELHO, GPIO_OUT);
+    gpio_put(LED_VERMELHO, 0);  // Desliga o LED vermelho inicialmente
+
     gpio_init(BUZZER);
     gpio_set_dir(BUZZER, GPIO_OUT);
+    gpio_put(BUZZER, 0);  // Desliga o buzzer inicialmente
 }
-void AtivarLedVerde(){
+
+void AtivarLedVerde() {
     gpio_put(LED_VERDE, 1);
     gpio_put(LED_AZUL, 0);
     gpio_put(LED_VERMELHO, 0);
 }
-void AtivarLedAzul(){
+
+void AtivarLedAzul() {
     gpio_put(LED_VERDE, 0);
     gpio_put(LED_AZUL, 1);
     gpio_put(LED_VERMELHO, 0);
 }
-void AtivarLedVermelho(){
+
+void AtivarLedVermelho() {
     gpio_put(LED_VERDE, 0);
     gpio_put(LED_AZUL, 0);
     gpio_put(LED_VERMELHO, 1);
 }
-void AtivarLedBranco(){
+
+void AtivarLedBranco() {
     gpio_put(LED_VERDE, 1);
     gpio_put(LED_AZUL, 1);
     gpio_put(LED_VERMELHO, 1);
 }
-void DesligarLeds(){
+
+void DesligarLeds() {
     gpio_put(LED_VERDE, 0);
     gpio_put(LED_AZUL, 0);
     gpio_put(LED_VERMELHO, 0);
 }
-void AtivarBuzzer(){
-    //toca o Buzzer por 2 segundos
+
+void AtivarBuzzer() {
+    // Toca o Buzzer por 2 segundos
     gpio_put(BUZZER, 1); 
     sleep_ms(2000);        
     gpio_put(BUZZER, 0);   

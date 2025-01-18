@@ -70,41 +70,41 @@ void AtivarLedVerde() {
     gpio_put(LED_VERDE, 1);
     gpio_put(LED_AZUL, 0);
     gpio_put(LED_VERMELHO, 0);
-    printf("Led Verde Aceso");
+    printf("Led Verde Aceso\n");
 }
 
 void AtivarLedAzul() {
     gpio_put(LED_VERDE, 0);
     gpio_put(LED_AZUL, 1);
     gpio_put(LED_VERMELHO, 0);
-    printf("Led Azul Aceso");
+    printf("Led Azul Aceso\n");
 }
 
 void AtivarLedVermelho() {
     gpio_put(LED_VERDE, 0);
     gpio_put(LED_AZUL, 0);
     gpio_put(LED_VERMELHO, 1);
-    printf("Led Vermelho Aceso");
+    printf("Led Vermelho Aceso\n");
 }
 
 void AtivarLedBranco() {
     gpio_put(LED_VERDE, 1);
     gpio_put(LED_AZUL, 1);
     gpio_put(LED_VERMELHO, 1);
-    printf("Led Branco Aceso");
+    printf("Led Branco Aceso\n");
 }
 
 void DesligarLeds() {
     gpio_put(LED_VERDE, 0);
     gpio_put(LED_AZUL, 0);
     gpio_put(LED_VERMELHO, 0);
-    printf("Todos os leds Desligados");
+    printf("Todos os leds Desligados\n");
 }
 
 void AtivarBuzzer() {
     // Toca o Buzzer por 2 segundos
     gpio_put(BUZZER, 1);
-    printf("Buzzer Ativo por 2 segundos"); 
+    printf("Buzzer Ativo por 2 segundos\n"); 
     sleep_ms(2000);        
     gpio_put(BUZZER, 0);   
 }

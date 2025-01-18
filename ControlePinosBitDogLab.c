@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "pico/stdlib.h"
 
 #define LED_VERDE 11
@@ -52,4 +53,35 @@ void InicializarPinos(){
     gpio_set_dir(LED_VERMELHO, GPIO_OUT);
     gpio_init(BUZZER);
     gpio_set_dir(BUZZER, GPIO_OUT);
+}
+void AtivarLedVerde(){
+    gpio_put(LED_VERDE, 1);
+    gpio_put(LED_AZUL, 0);
+    gpio_put(LED_VERMELHO, 0);
+}
+void AtivarLedAzul(){
+    gpio_put(LED_VERDE, 0);
+    gpio_put(LED_AZUL, 1);
+    gpio_put(LED_VERMELHO, 0);
+}
+void AtivarLedVermelho(){
+    gpio_put(LED_VERDE, 0);
+    gpio_put(LED_AZUL, 0);
+    gpio_put(LED_VERMELHO, 1);
+}
+void AtivarLedBranco(){
+    gpio_put(LED_VERDE, 1);
+    gpio_put(LED_AZUL, 1);
+    gpio_put(LED_VERMELHO, 1);
+}
+void DesligarLeds(){
+    gpio_put(LED_VERDE, 0);
+    gpio_put(LED_AZUL, 0);
+    gpio_put(LED_VERMELHO, 0);
+}
+void AtivarBuzzer(){
+    //toca o Buzzer por 2 segundos
+    gpio_put(BUZZER, 1); 
+    sleep_ms(2000);        
+    gpio_put(BUZZER, 0);   
 }

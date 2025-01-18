@@ -12,6 +12,7 @@ void AtivarLedVermelho();
 void AtivarLedBranco();
 void DesligarLeds();
 void AtivarBuzzer();
+void InicializarPinos();
 void ReceberComando();
 
 char comando[10];  // Buffer para armazenar comandos
@@ -42,4 +43,13 @@ void ReceberComando(){
         }
     }
 }
-
+void InicializarPinos(){
+    gpio_init(LED_VERDE);
+    gpio_set_dir(LED_VERDE, GPIO_OUT);
+    gpio_init(LED_AZUL);
+    gpio_set_dir(LED_AZUL, GPIO_OUT);
+    gpio_init(LED_VERMELHO);
+    gpio_set_dir(LED_VERMELHO, GPIO_OUT);
+    gpio_init(BUZZER);
+    gpio_set_dir(BUZZER, GPIO_OUT);
+}

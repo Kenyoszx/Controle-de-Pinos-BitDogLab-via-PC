@@ -63,6 +63,10 @@ O sistema aceita os seguintes comandos:
 
 O programa imprime mensagens no console para indicar qual LED foi ativado ou se o buzzer está ativo. Isso ajuda a monitorar a operação do sistema.
 
+### Demonstração das Funcionalidades
+
+O video no link a frente demosntra o algoritmo em execução: https://drive.google.com/file/d/1Zov5918_JgOLCqWB0zkN-SHiHencVleX/view?usp=drive_link
+
 ### Contribuições
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir um problema ou enviar um pull request.

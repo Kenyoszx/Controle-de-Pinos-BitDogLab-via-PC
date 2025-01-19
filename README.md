@@ -19,6 +19,7 @@ O sistema aceita os seguintes comandos:
 - `branco`: Ativa todos os LEDs (verde, azul e vermelho).
 - `desligar`: Desliga todos os LEDs.
 - `buzzer`: Aciona o buzzer por 2 segundos.
+- `bootsel`: Reseta a placa para o modo bootsel
 
 ### Estrutura do Código
 
@@ -28,15 +29,16 @@ O sistema aceita os seguintes comandos:
   - `AtivarLedVerde()`, `AtivarLedAzul()`, `AtivarLedVermelho()`, `AtivarLedBranco()`: Funções para ativar os LEDs correspondentes.
   - `DesligarLeds()`: Desliga todos os LEDs.
   - `AtivarBuzzer()`: Aciona o buzzer por 2 segundos.
+  - `ModoBootsel()`: Reseta a placa para o modo bootsel
 
 ### Requisitos
 
 - BitDogLab 6.4 <br/>
    **ou**
-- Raspberry Pi Pico
+- Raspberry Pi Pico RP2040
 - LEDs (verde, azul, vermelho)
 - Buzzer
-- Resistores (se necessário)
+- Resistores
 - Fios de conexão
 
 ### Conexões

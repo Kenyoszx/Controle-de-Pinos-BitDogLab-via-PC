@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "pico/stdlib.h"
+#include "pico/bootrom.h"
 
 #define LED_VERDE 11
 #define LED_AZUL 12
@@ -15,6 +16,7 @@ void DesligarLeds();
 void AtivarBuzzer();
 void InicializarPinos();
 void ReceberComando();
+void ModoBootsel();
 
 char comando[10];  // Buffer para armazenar comandos
 
@@ -42,6 +44,8 @@ void ReceberComando() {
             DesligarLeds();
         } else if (strcmp(comando, "buzzer") == 0) {
             AtivarBuzzer();
+        } else if (strcmp(comando, "bootsel") == 0){
+            ModoBootsel();
         } else {
             printf("Comando desconhecido: %s\n", comando);  // Mensagem para comando desconhecido
         }
@@ -107,4 +111,10 @@ void AtivarBuzzer() {
     printf("Buzzer Ativo por 2 segundos\n"); 
     sleep_ms(2000);        
     gpio_put(BUZZER, 0);   
+}
+
+void ModoBootsel() {
+    printf("Entrando em modo BOOTSEL...\n");
+    sleep_ms(1000);  // Aguarde um segundo antes de reiniciar
+    rom_reset_usb_boot(0,0);  // Reinicia e entra no modo BOOTSEL
 }

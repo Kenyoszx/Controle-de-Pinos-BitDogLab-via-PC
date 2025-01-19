@@ -45,8 +45,7 @@ pico_enable_stdio_uart(ControlePinosBitDogLab 1)
 pico_enable_stdio_usb(ControlePinosBitDogLab 1)
 
 # Add the standard library to the build
-target_link_libraries(ControlePinosBitDogLab
-        pico_stdlib)
+target_link_libraries(ControlePinosBitDogLab pico_stdlib )
 
 # Add the standard include files to the build
 target_include_directories(ControlePinosBitDogLab PRIVATE
@@ -55,7 +54,7 @@ target_include_directories(ControlePinosBitDogLab PRIVATE
 
 # Add any user requested libraries
 target_link_libraries(ControlePinosBitDogLab 
-        
+        pico_bootrom
         )
 
 pico_add_extra_outputs(ControlePinosBitDogLab)
